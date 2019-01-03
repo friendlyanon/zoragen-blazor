@@ -1,0 +1,33 @@
+@* This program is free software. It comes without any warranty, to the extent
+ * permitted by applicable law. You can redistribute it and/or modify it under
+ * the terms of the Do What The Fuck You Want To Public License, Version 2, as
+ * published by Sam Hocevar. See http://www.wtfpl.net/ for more details. *@
+
+@inject IZoraGenDetails ZoraGenDetails
+
+<div class="gameid-input-wrapper">
+    <h4>GameID:</h4>
+    <div class="gameid-flex">
+        <div class="form-group">
+            <input
+                class="form-control"
+                type="number"
+                min="1"
+                max="32767"
+                size="3"
+                bind="@GameID" />
+        </div>
+    </div>
+</div>
+
+@functions {
+    private string GameID
+    {
+        get => Math.Max(ZoraGenDetails.GameID, (short) 1).ToString();
+        set
+        {
+            short.TryParse(value, out var result);
+            ZoraGenDetails.GameID = Math.Max(result, (short) 1);
+        }
+    }
+}

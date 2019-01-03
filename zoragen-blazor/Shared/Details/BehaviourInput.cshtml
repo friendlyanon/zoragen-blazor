@@ -1,0 +1,42 @@
+@* This program is free software. It comes without any warranty, to the extent
+ * permitted by applicable law. You can redistribute it and/or modify it under
+ * the terms of the Do What The Fuck You Want To Public License, Version 2, as
+ * published by Sam Hocevar. See http://www.wtfpl.net/ for more details. *@
+
+@inject IZoraGenDetails ZoraGenDetails
+
+<div class="behaviour-input-wrapper">
+    <h4>Behaviour:</h4>
+    <div class="behaviour-flex">
+        <div class="form-group">
+            <select class="custom-select" bind="@BehaviourOption">
+                @for (var i = 0; i < BehaviourNames.Length; ++i)
+                {
+                    <option selected="@(i == behaviourIdx ? "selected" : null)" value="@(i.ToString())">@BehaviourNames[i]</option>
+                }
+            </select>
+        </div>
+    </div>
+</div>
+
+@functions {
+    private static readonly string[] BehaviourNames =
+    {
+        "Infant", "Bouncy A", "Bouncy B", "Bouncy C", "Bouncy D", "Bouncy E", "Shy A", "Shy B", "Shy C", "Shy D", "Shy E", "Hyper A", "Hyper B", "Hyper C", "Hyper D", "Hyper E"
+    };
+
+    private byte behaviourIdx;
+
+    private string BehaviourOption
+    {
+        // noop getter because can't have a property without a getter even if
+        // it's only used for its setter ¯\_(ツ)_/¯
+        get => null;
+        set => ZoraGenDetails.Behaviour = behaviourIdx = byte.Parse(value);
+    }
+
+    protected override void OnInit()
+    {
+        behaviourIdx = ZoraGenDetails.Behaviour;
+    }
+}

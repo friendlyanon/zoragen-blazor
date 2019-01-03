@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RunCommand>dotnet</RunCommand>
+    <RunArguments>blazor serve</RunArguments>
+    <LangVersion>7.3</LangVersion>
+    <Configurations>Debug;Release</Configurations>
+    <Platforms>AnyCPU</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Blazor.Browser" Version="0.7.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="0.7.0" PrivateAssets="all" />
+
+    <DotNetCliToolReference Include="Microsoft.AspNetCore.Blazor.Cli" Version="0.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot/index.html;wwwroot/serviceworker.js;wwwroot/register-sw.js;wwwroot/manifest.json">
+      <Visible>false</Visible>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\sample-data\weather.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\zora-sharp\src\ZoraSharp.csproj" />
+  </ItemGroup>
+
+  <Target Name="PreparePwaJson" AfterTargets="Build">
+    <Exec Command="node generatepwajson.js" />
+  </Target>
+
+</Project>

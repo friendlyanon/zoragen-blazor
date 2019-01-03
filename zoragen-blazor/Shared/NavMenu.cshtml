@@ -1,0 +1,40 @@
+﻿@* This program is free software. It comes without any warranty, to the extent
+ * permitted by applicable law. You can redistribute it and/or modify it under
+ * the terms of the Do What The Fuck You Want To Public License, Version 2, as
+ * published by Sam Hocevar. See http://www.wtfpl.net/ for more details. *@
+
+<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">ZoraGen</a>
+    <button class="navbar-toggler" onclick="@ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class=@(collapseNavMenu ? "collapse" : null) onclick="@ToggleNavMenu">
+    <ul class="nav flex-column">
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-cog" aria-hidden="true"></span> Details
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="rings">
+                <span class="oi oi-list" aria-hidden="true"></span> Rings
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="secrets">
+                <span class="oi oi-document" aria-hidden="true"></span> Secrets
+            </NavLink>
+        </li>
+    </ul>
+</div>
+
+@functions {
+    bool collapseNavMenu = true;
+
+    void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

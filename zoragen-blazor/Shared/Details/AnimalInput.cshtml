@@ -1,0 +1,64 @@
+@* This program is free software. It comes without any warranty, to the extent
+ * permitted by applicable law. You can redistribute it and/or modify it under
+ * the terms of the Do What The Fuck You Want To Public License, Version 2, as
+ * published by Sam Hocevar. See http://www.wtfpl.net/ for more details. *@
+
+@using Zyrenth.Zora
+@inject IZoraGenDetails ZoraGenDetails
+
+<div class="animal-input-wrapper">
+    <h4>Animal:</h4>
+    <div class="animal-flex">
+        <div class="form-group">
+            <select class="custom-select" bind="@AnimalOption">
+                @for (var i = 0; i < AnimalNames.Length; ++i)
+                {
+                    <option selected="@(i == animalIdx ? "selected" : null)" value="@(i.ToString())">@AnimalNames[i]</option>
+                }
+            </select>
+        </div>
+
+        <img alt="animal" src="/img/characters/@(animalName).gif" />
+    </div>
+</div>
+
+@functions {
+    private static readonly string[] AnimalNames =
+    {
+        "None", "Ricky", "Dimitri", "Moosh"
+    };
+
+    private int animalIdx;
+    private string animalName;
+
+    private string AnimalOption
+    {
+        // noop getter because can't have a property without a getter even if
+        // it's only used for its setter ¯\_(ツ)_/¯
+        get => null;
+        set
+        {
+            var idx = value[0] & 0b11;
+            if (idx != 0)
+            {
+                ZoraGenDetails.Animal = (Animal) ((animalIdx = idx) + 10);
+                animalName = AnimalNames[idx];
+                return;
+            }
+            animalIdx = 0;
+            ZoraGenDetails.Animal = Animal.None;
+            animalName = AnimalNames[3];
+        }
+    }
+
+    protected override void OnInit()
+    {
+        if (ZoraGenDetails.Animal != Animal.None)
+        {
+            animalName = AnimalNames[animalIdx = (byte) ZoraGenDetails.Animal - 10];
+            return;
+        }
+        animalIdx = 0;
+        animalName = AnimalNames[3];
+    }
+}

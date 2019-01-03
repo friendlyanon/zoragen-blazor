@@ -1,0 +1,28 @@
+@* This program is free software. It comes without any warranty, to the extent
+ * permitted by applicable law. You can redistribute it and/or modify it under
+ * the terms of the Do What The Fuck You Want To Public License, Version 2, as
+ * published by Sam Hocevar. See http://www.wtfpl.net/ for more details. *@
+
+@inherits BlazorLayoutComponent
+
+<div class="sidebar">
+    <NavMenu />
+</div>
+
+<div class="main">
+    <div class="top-row px-4">
+        <a href="https://github.com/kabili207/zora-sharp" target="_blank" class="ml-md-auto">ZoraSharp on Github</a>
+    </div>
+
+    <div class="content px-4">
+        @Body
+    </div>
+
+    <footer class="page-footer font-small">
+
+        <div class="footer-copyright text-muted text-center py-3">
+            All trademarks and copyrights on this page are owned by their respective parties.
+        </div>
+
+    </footer>
+</div>

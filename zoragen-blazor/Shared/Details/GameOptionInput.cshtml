@@ -1,0 +1,27 @@
+@* This program is free software. It comes without any warranty, to the extent
+ * permitted by applicable law. You can redistribute it and/or modify it under
+ * the terms of the Do What The Fuck You Want To Public License, Version 2, as
+ * published by Sam Hocevar. See http://www.wtfpl.net/ for more details. *@
+
+@using Zyrenth.Zora
+@inject IZoraGenDetails ZoraGenDetails
+
+<div class="gametype-input-wrapper">
+    <input type="radio" id="ages" name="options" checked="@(ZoraGenDetails.Game == Game.Ages ? "checked" : null)" onchange="@AgesChangeHandler" />
+    <input type="radio" id="seasons" name="options" checked="@(ZoraGenDetails.Game == Game.Seasons ? "checked" : null)" onchange="@SeasonsChangeHandler"/>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-primary" for="ages">Ages</label>
+        <label class="btn btn-primary" for="seasons">Seasons</label>
+    </div>
+</div>
+
+@functions {
+    private void AgesChangeHandler()
+    {
+        ZoraGenDetails.Game = Game.Ages;
+    }
+    private void SeasonsChangeHandler()
+    {
+        ZoraGenDetails.Game = Game.Seasons;
+    }
+}
