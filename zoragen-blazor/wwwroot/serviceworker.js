@@ -1,6 +1,6 @@
 "use strict";
 // Automatically generated file. Do not edit!
-// Generated on 2019-1-3 23:43:47
+// Generated on 2019-1-4 00:39:40
 const cacheName = "zoragen-blazor";
 const filesToCache = [
   "./",
@@ -179,9 +179,7 @@ const filesToCache = [
   "./_framework/_bin/System.dll",
   "./_framework/_bin/System.Net.Http.dll",
   "./_framework/_bin/zoragen-blazor.dll",
-  "./_framework/_bin/zoragen-blazor.pdb",
-  "./_framework/_bin/ZoraSharp.dll",
-  "./_framework/_bin/ZoraSharp.pdb"
+  "./_framework/_bin/ZoraSharp.dll"
 ];
 
 self.addEventListener("install", function (e) {

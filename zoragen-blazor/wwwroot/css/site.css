@@ -1,4 +1,4 @@
-﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+﻿@import url("open-iconic/font/css/open-iconic-bootstrap.min.css");
 
 @keyframes might-take-a-while {
     from {
@@ -9,7 +9,7 @@
 }
 
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     height: 100%;
 }
 
@@ -159,6 +159,7 @@ app {
 
 .secret-symbol {
     filter: invert(85%);
+    image-rendering: pixelated;
 }
 
 .symbol-strip {

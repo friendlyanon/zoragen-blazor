@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>ZoraGen</title>
-    <base href="/" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="icon" sizes="16x16 24x24 32x32 48x48 64x64" href="/favicon.ico" />
+    <!-- BASE -->
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="icon" sizes="16x16 24x24 32x32 48x48 64x64" href="favicon.ico" />
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="css/site.css" rel="stylesheet" />
     <script src="js/main.js"></script>
@@ -33,20 +33,19 @@
         // the correct url will be waiting in the browser's history for
         // the single page app to route accordingly.
         (function(l) {
-            if (l.search) {
-                const q = {}, rex = /~and~/g;
-                l.search.slice(1).split('&').forEach(function(v) {
-                    const a = v.split('=');
-                    q[a[0]] = a.slice(1).join('=').replace(rex, '&');
-                });
-                if (q.p !== undefined) {
-                    window.history.replaceState(null, null,
-                        l.pathname.slice(0, -1) + (q.p || '') +
-                        (q.q ? ('?' + q.q) : '') +
-                        l.hash
-                    );
-                }
+            if (!l.search) return;
+            const q = {}, rex = /~and~/g;
+            for (const v of l.search.slice(1).split('&')) {
+                const a = v.split('=');
+                q[a[0]] = a.slice(1).join('=').replace(rex, '&');
+
             }
+            if (q.p === undefined) return;
+            window.history.replaceState(null, null,
+                l.pathname.slice(0, -1) + (q.p || '') +
+                (q.q ? ('?' + q.q) : '') +
+                l.hash
+            );
         }(window.location))
     </script>
     <script src="_framework/blazor.webassembly.js"></script>

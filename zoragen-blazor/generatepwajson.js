@@ -11,7 +11,9 @@ const { readdir, readFile, writeFile, lstat } = (() => {
   try { return require("fs").promises; }
   finally { process.emitWarning = orig; }
 })();
+
 const projectName = basename(__dirname);
+const baseDir = "/";
 
 /* Manifest details begin */
 
@@ -31,7 +33,7 @@ const manifest = {
       type: "image/png"
     }
   ],
-  start_url: "/",
+  start_url: baseDir,
   scope: ".",
   display: "standalone",
   orientation: "portrait",
@@ -51,7 +53,8 @@ async function walk(dir, path, names) {
   for (const entry of await readdir(dir)) {
     const entryPath = join(dir, entry);
     const stats = await lstat(entryPath);
-    if (stats.isFile() && (!ignoreFiles.has(entry) || entry.endsWith(".pdb"))) {
+    if (stats.isFile()) {
+      if (ignoreFiles.has(entry) || entry.endsWith(".pdb")) continue;
       names.add(`${path.join("/")}/${entry}`);
     }
     else if (stats.isDirectory()) {
@@ -121,7 +124,7 @@ self.addEventListener("fetch", event => {
           throw new Error("There have been more PWA placeholders than expected");
       }
     }
-  );
+  ).replace(/<!--\s*base\s*-->/i, `<base href="${baseDir}" />`);
   await writeFile(join(__dirname, "wwwroot", "index.html"), index);
   console.log("[PWA] Successfully set index.html up");
 }

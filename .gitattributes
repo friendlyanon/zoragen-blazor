@@ -12,6 +12,8 @@
 *.md text eol=lf
 *.txt text eol=lf
 *.json text eol=lf
+.gitmodules text eol=lf
+.gitattributes text eol=lf
 
 # Declare files that will always have CRLF line endings on checkout.
 *.sln text eol=crlf
