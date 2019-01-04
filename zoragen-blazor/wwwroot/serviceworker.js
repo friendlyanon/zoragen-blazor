@@ -1,6 +1,6 @@
 "use strict";
 // Automatically generated file. Do not edit!
-// Generated on 2019-1-4 14:50:07
+// Generated on 2019-1-5 00:55:35
 const cacheName = "zoragen-blazor";
 const filesToCache = [
   "./",
