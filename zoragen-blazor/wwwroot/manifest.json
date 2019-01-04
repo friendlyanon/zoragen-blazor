@@ -14,7 +14,7 @@
 			"type": "image/png"
 		}
 	],
-	"start_url": "/",
+	"start_url": "/ZoraGen/",
 	"scope": ".",
 	"display": "standalone",
 	"orientation": "portrait",
