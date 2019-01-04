@@ -17,6 +17,7 @@ https://friendlyanon.github.io/zoragen/
  * TBD
 
 ### Special Thanks
+ * [kabili207][6] - Created the [ZoraSharp][4] library
  * Paulygon - Created the [original secret generator][1] way back in 2001
  * 39ster - Rediscovered [how to decode game secrets][2] using paulygon's
 program
@@ -40,3 +41,4 @@ version 3
 [3]: https://github.com/LunarCookies
 [4]: https://github.com/kabili207/zora-sharp
 [5]: https://github.com/kabili207/zoragen-wpf
+[6]: https://github.com/kabili207
