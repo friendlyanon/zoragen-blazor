@@ -13,7 +13,7 @@ const { readdir, readFile, writeFile, lstat } = (() => {
 })();
 
 const projectName = basename(__dirname);
-const baseDir = "/";
+const baseDir = "/zoragen/";
 
 /* Manifest details begin */
 

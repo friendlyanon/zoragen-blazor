@@ -33,8 +33,9 @@ ZoraGen Blazor makes use of the following library:
 version 3
 
 ZoraGen Blazor makes use of resources from the following project:
- * [ZoraGen WPF][5], licensed under the GNU Lesser General Public License
-version 3
+ * [ZoraGen WPF][5], licensed under the GNU General Public License version 3
+
+The Legend of Zelda is a trademark of Nintendo of America Inc.
 
 [1]: http://home.earthlink.net/~paul3/zeldagbc.html
 [2]: https://gamefaqs.gamespot.com/boards/472313-/66934363
