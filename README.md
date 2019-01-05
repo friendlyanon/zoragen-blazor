@@ -4,7 +4,7 @@ A generator for the password system used in the Legend of Zelda Oracle of Ages
 and Oracle of Seasons games.  
 Built using the [ZoraSharp][4] library.
 
-###What is Blazor?
+### What is Blazor?
 
 Blazor is a single-page web app framework built on .NET that runs in the
 browser with WebAssembly. It is currently an experimental technology.  
