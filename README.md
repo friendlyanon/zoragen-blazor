@@ -6,8 +6,8 @@ Built using the [ZoraSharp][4] library.
 
 ### What is Blazor?
 
-Blazor is a single-page web app framework built on .NET that runs in the
-browser with WebAssembly. It is currently an experimental technology.  
+Blazor is a single-page web application framework built on .NET that runs in
+the browser with WebAssembly. It is currently an experimental technology.  
 Blazor FAQ: https://blazor.net/docs/introduction/faq.html
 
 ### Features
